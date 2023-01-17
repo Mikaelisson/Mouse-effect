@@ -1,0 +1,52 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  overflow: hidden;
+}
+
+#container{
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #111;
+  animation: animate-bg 5s infinite linear;
+}
+
+@keyframes animate-bg{
+  0%{filter: hue-rotate(0deg);}
+  100%{filter: hue-rotate(360deg);}
+}
+
+#container span{
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+#container span::before{
+  content: "";
+  width: 200%;
+  height: 200%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: blueviolet;
+  box-shadow: 0 0 10px blueviolet, 
+              0 0 20px blueviolet,
+              0 0 40px blueviolet,
+              0 0 60px blueviolet,
+              0 0 80px blueviolet,
+              0 0 100px blueviolet;
+  border-radius: 50%;
+  transition: 2s;
+  transform: scale(0);
+}
+
+#container span:hover::before{
+  transition: 0s;
+  transform: scale(1);
+}
